@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import CounterForm from './components/CounterForm.vue'
+import CounterForm from './components/Form/CounterForm.vue'
 
 export default {
   name: 'App',
@@ -72,23 +72,22 @@ export default {
   --color-warning-hover: #ff8484;
 }
 
-html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
-}
-
-html {
-  min-width: 1160px;
-}
-
-body {
   width: 100%;
-
   font-size: 18px;
   line-height: 21px;
   font-family: "PT Sans Caption", "Arial", sans-serif;
   color: var(--color-text-black);
+}
+
+html {
+  min-width: 1160px;
+
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 </style>
