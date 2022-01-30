@@ -1,54 +1,56 @@
 <template>
-    <section id="result" class="counter__result" hidden>
-          <h2 class="heading">
-            Ваша норма калорий
-          </h2>
-          <ul class="counter__result-list">
-            <li v-for="result in results" :key="result" class="counter__result-item">
-              <h3>
-                <span id="calories-norm">{{calories[result.id].toFixed(0)}}</span> ккал
-              </h3>
-              <p>
-                {{ result.name }}
-              </p>
-            </li>
-          </ul>
-        </section>
+  <section id="result" class="counter__result" hidden>
+    <h2 class="heading">Ваша норма калорий</h2>
+    <ul class="counter__result-list">
+      <li v-for="result in results" :key="result" class="counter__result-item">
+        <h3>
+          <span id="calories-norm">{{ calories[result.id].toFixed(0) }}</span>
+          ккал
+        </h3>
+        <p>
+          {{ result.name }}
+        </p>
+      </li>
+    </ul>
+  </section>
 </template>
 
-<script>
-export default {
-  props: ['isVisibleResult', 'calories'],
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  props: ["isVisibleResult", "calories"],
 
   data() {
     return {
       results: [
         {
           id: "maintenance",
-          name: "поддержание веса"
+          name: "поддержание веса",
         },
         {
           id: "less",
-          name: "снижение веса"
+          name: "снижение веса",
         },
         {
           id: "more",
-          name: "набор веса"
-        }
-      ]
-    }
+          name: "набор веса",
+        },
+      ],
+    };
   },
 
   watch: {
-    isVisibleResult(value) {
-      document.getElementById('result').hidden = value ? false : true
-    }
-  }
-}
+    isVisibleResult(value: boolean) {
+      (document.getElementById("result") as HTMLInputElement).hidden = value
+        ? false
+        : true;
+    },
+  },
+});
 </script>
 
 <style scoped>
-
 .counter__result {
   padding: 32px 32px;
 
@@ -100,5 +102,4 @@ export default {
 
   color: var(--color-gray-dark);
 }
-
 </style>

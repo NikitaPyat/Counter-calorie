@@ -1,16 +1,18 @@
 <template>
-  <CounterForm/>
+  <counter-form />
 </template>
 
-<script>
-import CounterForm from './components/Form/CounterForm.vue'
+<script lang="ts">
+import { defineComponent } from "vue";
 
-export default {
-  name: 'App',
+import counterForm from "./components/CounterForm/Form.vue";
+
+export default defineComponent({
+  name: "App",
   components: {
-    CounterForm
-  }
-}
+    counterForm,
+  },
+});
 </script>
 
 <style>
@@ -32,8 +34,7 @@ export default {
   font-family: "PT Sans Caption";
 
   font-display: swap;
-  src:
-    url("assets/fonts/pt-sans-caption-bold.woff2") format("woff2"),
+  src: url("assets/fonts/pt-sans-caption-bold.woff2") format("woff2"),
     url("assets/fonts/pt-sans-caption-bold.woff") format("woff");
 }
 
@@ -43,8 +44,7 @@ export default {
   font-family: "PT Sans Caption";
 
   font-display: swap;
-  src:
-    url("assets/fonts/pt-sans-caption-regular.woff2") format("woff2"),
+  src: url("assets/fonts/pt-sans-caption-regular.woff2") format("woff2"),
     url("assets/fonts/pt-sans-caption-regular.woff") format("woff");
 }
 
@@ -72,22 +72,33 @@ export default {
   --color-warning-hover: #ff8484;
 }
 
+html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
-  width: 100%;
-  font-size: 18px;
-  line-height: 21px;
-  font-family: "PT Sans Caption", "Arial", sans-serif;
-  color: var(--color-text-black);
 }
 
 html {
   min-width: 1160px;
+}
 
-  height: 100%;
-  margin: 0;
-  padding: 0;
+body {
+  width: 100%;
+
+  font-size: 18px;
+  line-height: 21px;
+  font-family: "PT Sans Caption", "Arial", sans-serif;
+  color: var(--color-text-black);
+
+  flex: 1 0 auto;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 auto;
+
+  background-image: url("assets/main-background.jpg");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: var(--color-accent);
 }
 </style>
