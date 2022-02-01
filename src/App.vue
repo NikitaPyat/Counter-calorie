@@ -5,7 +5,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import counterForm from "./components/CounterForm/Form.vue";
+import counterForm from "./components/CounterForm/CounterForm.vue";
 
 export default defineComponent({
   name: "App",
